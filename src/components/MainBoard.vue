@@ -1,14 +1,17 @@
 <script setup lang="ts">
 
+import BoardColumn from "@/components/BoardColumn.vue";
 </script>
 
 <template>
+
   <div class="section">
+    <board-column v-for="item in [1,2,3,4,5]"></board-column>
     <div class="adderColumn__settings">
       <button class="adderColumn adderColumn__theme">
         +
       </button>
-  </div>
+    </div>
 
   </div>
 </template>

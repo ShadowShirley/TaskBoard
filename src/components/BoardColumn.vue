@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+import BoardTask from "@/components/BoardTask.vue";
 </script>
 
 <template>
@@ -15,6 +16,7 @@
     </div>
 
     <div class="box__tasks">
+      <board-task v-for="task in [1,2,3,4,5]"></board-task>
     </div>
 
     <div class="box__button">
