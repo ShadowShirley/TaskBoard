@@ -6,7 +6,7 @@ import BoardColumn from "@/components/BoardColumn.vue";
 <template>
 
   <div class="section">
-    <board-column v-for="item in [1,2,3,4,5]"></board-column>
+    <board-column v-for="item in [1,2,3,4,5,6]"></board-column>
     <div class="adderColumn__settings">
       <button class="adderColumn adderColumn__theme">
         +
@@ -20,11 +20,13 @@ import BoardColumn from "@/components/BoardColumn.vue";
 .section{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  height: 600px;
+  height: 700px;
   flex-wrap: nowrap;
   align-items: center;
 }
+
+
+
 .adderColumn:hover{
   color: #494949;
   cursor: pointer;

@@ -1,6 +1,12 @@
 <script setup lang="ts">
 
 import BoardTask from "@/components/BoardTask.vue";
+
+const props = defineProps({
+  name: { type: String, required: true, default:"Name"},
+  comment: {type: String, required: false, default:"Я гей"}
+})
+
 </script>
 
 <template>
@@ -8,15 +14,16 @@ import BoardTask from "@/components/BoardTask.vue";
     <div class="header__column">
 
       <div class="box__named">
-        Backlog
+        {{ props.name }}
       </div>
       <span class="box__comments">
-        This item hasn't been started
+        {{props.comment}}
       </span>
     </div>
 
     <div class="box__tasks">
-      <board-task v-for="task in [1,2,3,4,5]"></board-task>
+
+      <board-task v-for="task in [1,2,3]"></board-task>
     </div>
 
     <div class="box__button">
@@ -37,8 +44,10 @@ import BoardTask from "@/components/BoardTask.vue";
   flex-direction: column;
   margin-right: 8px;
   flex-wrap: nowrap;
-  width: 400px;
+  width: 300px;
+  min-width: 20%;
   display: flex;
+  box-sizing: border-box;
   height: 100%;
 }
 
@@ -51,25 +60,28 @@ import BoardTask from "@/components/BoardTask.vue";
 .header__column{
   height: 10%;
   padding: 8px 4px;
-  overflow-wrap: break-word;
 }
 .box__named{
   font-weight: bolder;
   margin-bottom: 4px;
 }
+
 .box__comments{
   color: rgba(176, 176, 176, 0.91);
   box-sizing: border-box;
 }
 .box__tasks{
-  flex-direction: column;
-  display: flex;
-  flex-wrap: nowrap;
   height: 80%;
-  padding: 4px 8px;
+  padding: 0 3px 4px 4px;
   box-sizing: border-box;
   flex-grow: 1;
+  overflow-y: auto;
 }
+
+.box__tasks::-webkit-scrollbar {
+  width: 1px;
+}
+
 .box__button{
   height: 10%;
 }

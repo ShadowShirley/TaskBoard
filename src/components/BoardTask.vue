@@ -1,20 +1,26 @@
 <script setup lang="ts">
 
+const props = defineProps({
+  taskId: { type: String, required: true, default:"id"},
+  person: {type: String, required: true, default:"Пидор"},
+  taskName:{type: String, required: true, default:"Пидор"},
+})
+
 </script>
 
 <template>
   <div class="task">
     <div class="taskInfo taskInfo__theme">
       <div>
-        docs #
+        {{props.taskId}}
       </div>
       <div>
-        Исполнитель
+        {{props.person}}
       </div>
     </div>
     <div class="mainTask">
       <span class="mainTask__rule">
-        taska 2
+        {{props.taskName}}
       </span>
     </div>
   </div>
@@ -23,8 +29,10 @@
 <style scoped>
 
 .task{
-  height: 20%;
+  height: 16%;
+  margin-bottom: 4px;
   border-radius: 4px;
+  box-sizing: border-box;
   border: 1px solid #121212 ;
   min-width: max-content;
 }
